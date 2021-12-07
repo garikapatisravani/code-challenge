@@ -1,0 +1,62 @@
+<div class="header">
+    <img src="./../../assets/insubuy-thumb.jpg">
+    <!-- <a href="#default" class="logo">CompanyLogo</a> -->
+    <div class="header-right">
+        <h1>Travel Insurance</h1>
+    </div>
+</div>
+
+<div style="padding-left:20px">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Policy Maximum</label>
+                <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
+                    <option value="">Choose your policy maximum</option>
+                    <option value="50">50,000</option>
+                    <option value="100">100,000</option>
+                    <option value="250">250,000 </option>
+                    <option value="500">500,000</option>
+                </select>
+                <!-- <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                    <div *ngIf="f.title.errors.required">Title is required</div>
+                </div> -->
+            </div>
+            <div class="form-group">
+                <label>Age</label>
+                <input type="text" formControlName="age" placeholder="Choose your age" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['age'].errors }" />
+                <div *ngIf="submitted && f['age'].errors" class="invalid-feedback">
+                    <div *ngIf="f['age'].errors['required']">Age is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Travel Dates (mm/dd/yyyy)</label>
+                <input type="date" formControlName="startDate" placeholder="Start Date" data-date="" data-date-format="DD MMMM YYYY">
+                <input type="date" formControlName="endDate" placeholder="End Date" data-date="" data-date-format="DD MMMM YYYY">
+            </div>
+                <div class="form-group">
+                <label>Citizenship</label>
+                <input type="text" formControlName="citizenship" placeholder="Choose your Country of Citizenship" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['citizenship'].errors }" />
+                <div *ngIf="submitted && f['citizenship'].errors" class="invalid-feedback">
+                    <div *ngIf="f['citizenship'].errors['required']">citizenship is required</div>
+                    <!-- <div *ngIf="f['citizenship'].errors['pattern']">No numerics and special characters are allowed</div> -->
+                </div>
+            </div>
+            <div class="form-group" [ngClass]="{'has-error':registerForm.get('mailingState').errors && (registerForm.get('mailingState').touched || registerForm.get('mailingState').dirty) }">
+                <label>Mailing State</label>
+                <input type="text" formControlName="mailingState" placeholder="Choose State" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['mailingState'].errors }" />
+                <!-- <div *ngIf="submitted && f['mailingState'].errors" class="invalid-feedback">
+                    <div *ngIf="f['mailingState'].errors['required']">Mailing State is required</div>
+                </div>
+                <span *ngIf = "registerForm.get('mailingState').errors">
+                    No numerics and special characters are allowed
+                </span> -->
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary mr-1">Get Quotes</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset Form</button>
+        </div>
+    </form>
+</div>
+

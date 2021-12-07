@@ -1,0 +1,17 @@
+<div id="btnContainer">
+    <button class="btn" onclick="listView()">List</button> 
+    <button class="btn active" onclick="gridView()">Grid</button>
+</div>
+  <br>
+
+  <div class="row" *ngFor="let data of insurancePlansData">
+    <div class="column" style="background-color:#aaa;">
+        <p>{{data.id}}</p>
+        <p>{{data.price}}</p>
+        <p>{{data.name}}</p>
+        <p>{{data.description}}</p>
+        <p>{{data.type}}</p>
+        <p>{{data.section}}</p>
+        <p>{{data.bestSellers}}</p>
+    </div>
+  </div>
